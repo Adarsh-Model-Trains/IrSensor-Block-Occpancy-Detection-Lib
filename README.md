@@ -120,7 +120,10 @@ BlockSensors blockSensors;
 
 void setup() {
   Serial.begin(9600);
-  blockSensors.initBlockSensors(NO_OF_BLOCKS);
+  
+   blockSensors.initBlockSensors(NO_OF_BLOCKS);
+
+  //blockSensors.setBlockSensorPins(BLOCKNO, BLOCK_START_IR_SENSOR_PIN, BLOCK_END_IR_SENSOR);
   blockSensors.setBlockSensorPins(0, 13, 12);
   blockSensors.setBlockSensorPins(1, 11, 10);
   blockSensors.setBlockSensorPins(2, 9, 8);
@@ -129,6 +132,7 @@ void setup() {
 void loop() {
   delay(1000);
   for (int i = 0; i < NO_OF_BLOCKS; i++) {
+  	//bool isBlockOccuipied = blockSensors.isSensorBlockOccupied(BLOCKNO); // this will return true / false based on occupancy of block 
     bool isBlockOccuipied = blockSensors.isSensorBlockOccupied(i);
     Serial.print("Block no  ");
     Serial.print(i);

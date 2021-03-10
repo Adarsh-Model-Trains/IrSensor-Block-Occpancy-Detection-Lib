@@ -18,9 +18,9 @@ void BlockSensors::initBlockSensors(int totalSensor) {
 }
 
 void BlockSensors::setBlockSensorPins(int blockNo, int startBlockSensorPin, int endBlockSensorPin) {
-  _irSensorBlocks[blockNo].setStartAndEndBlockSensorPin(startBlockSensorPin, endBlockSensorPin);
+  _irSensorBlocks[blockNo - 1].setStartAndEndBlockSensorPin(startBlockSensorPin, endBlockSensorPin);
 }
 
 bool BlockSensors::isSensorBlockOccupied(int blockNo) {
-  return _irSensorBlocks[blockNo].isBlockOccupied();
+  return _irSensorBlocks[blockNo - 1].isBlockOccupied();
 }

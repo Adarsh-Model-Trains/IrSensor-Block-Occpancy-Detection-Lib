@@ -12,6 +12,8 @@ in chain with less complexcity of the programming
 max we can connect any number of block till the arduino has input pins 2 pins per block 
 this api support a simple interface where we can controll 1-N blocks for their occupancy and unoccupancy 
 
+NOTE: block number will start from 1 to the nax number configured 
+
 ```
 
 
@@ -62,6 +64,8 @@ BlockSensors blockSensors;
 
 ## initialize the object with in setup method
 ```
+initBlockSensors() will take total nuber of block we want to configure 
+
 void setup() {
   
    .....
@@ -75,13 +79,15 @@ void setup() {
 
 ## set the block starting ir sensor pin and end pins 
 ```
+setBlockSensorPins() will take block number followed by ir sensor pin which is at start of block and ir sensor pin which is at end of block 
 void setup() {
   
    .....
 
-  blockSensors.setBlockSensorPins(0, 13, 12);
-  blockSensors.setBlockSensorPins(1, 11, 10);
-  blockSensors.setBlockSensorPins(2, 9, 8);
+  // blockSensors.setBlockSensorPins(BLOCKNO, BLOCK_START_IR_SENSOR_PIN, BLOCK_END_IR_SENSOR);
+  blockSensors.setBlockSensorPins(1, 13, 12); //block 1
+  blockSensors.setBlockSensorPins(2, 11, 10); //block 2
+  blockSensors.setBlockSensorPins(3, 9, 8);   //block 3
 
   .......
 
@@ -104,7 +110,7 @@ void setup() {
 void loop() {
   
   .......
-
+  //bool isBlockOccuipied = blockSensors.isSensorBlockOccupied(BLOCKNO); // this will return true / false based on occupancy of block 
    bool isBlockOccuipied = blockSensors.isSensorBlockOccupied(blockNumber);
   ..........
 }
@@ -119,20 +125,17 @@ void loop() {
 BlockSensors blockSensors;
 
 void setup() {
-  Serial.begin(9600);
-  
+  Serial.begin(9600);  
    blockSensors.initBlockSensors(NO_OF_BLOCKS);
-
-  //blockSensors.setBlockSensorPins(BLOCKNO, BLOCK_START_IR_SENSOR_PIN, BLOCK_END_IR_SENSOR);
-  blockSensors.setBlockSensorPins(0, 13, 12);
-  blockSensors.setBlockSensorPins(1, 11, 10);
-  blockSensors.setBlockSensorPins(2, 9, 8);
+  blockSensors.setBlockSensorPins(1, 13, 12);
+  blockSensors.setBlockSensorPins(2, 11, 10);
+  blockSensors.setBlockSensorPins(3, 9, 8);
 }
 
 void loop() {
   delay(1000);
-  for (int i = 0; i < NO_OF_BLOCKS; i++) {
-  	//bool isBlockOccuipied = blockSensors.isSensorBlockOccupied(BLOCKNO); // this will return true / false based on occupancy of block 
+  for (int i = 1; i <= NO_OF_BLOCKS; i++) {
+  	
     bool isBlockOccuipied = blockSensors.isSensorBlockOccupied(i);
     Serial.print("Block no  ");
     Serial.print(i);

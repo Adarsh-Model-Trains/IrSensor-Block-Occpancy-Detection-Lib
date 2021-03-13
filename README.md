@@ -1,4 +1,4 @@
-# Ir-Sensor-lib
+# IrSensor-Block-Detection-Lib
 
 ---
 
@@ -6,7 +6,7 @@
 
 ## About the Lib
 ```
-Ir-Sensor-lib is for supporing multiple Ir-Sensor bases block together 
+IrSensor-Block-Detection-Lib is for supporing multiple Ir-Sensor bases block together 
 in chain with less complexcity of the programming 
 
 max we can connect any number of block till the arduino has input pins 2 pins per block 

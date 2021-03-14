@@ -63,6 +63,8 @@ BlockSensors blockSensors;
 
 
 ## initialize the object with in setup method
+*   blockSensors.initBlockSensors(NO_OF_BLOCKS);
+* this will set the number os ir sensor blcok we cant to configure 
 ```
 initBlockSensors() will take total nuber of block we want to configure 
 
@@ -78,13 +80,14 @@ void setup() {
 ```
 
 ## set the block starting ir sensor pin and end pins 
+*    blockSensors.setBlockSensorPins(BLOCKNO, BLOCK_START_IR_SENSOR_PIN, BLOCK_END_IR_SENSOR);
+*  it will set the block starting ir sensor  pin and block ending ir sensor  pin for particular block number 
 ```
 setBlockSensorPins() will take block number followed by ir sensor pin which is at start of block and ir sensor pin which is at end of block 
 void setup() {
   
    .....
 
-  // blockSensors.setBlockSensorPins(BLOCKNO, BLOCK_START_IR_SENSOR_PIN, BLOCK_END_IR_SENSOR);
   blockSensors.setBlockSensorPins(1, 13, 12); //block 1
   blockSensors.setBlockSensorPins(2, 11, 10); //block 2
   blockSensors.setBlockSensorPins(3, 9, 8);   //block 3
@@ -106,11 +109,13 @@ void setup() {
 ```
 
 ## use lib method for know the block state
+* bool isBlockOccuipied = blockSensors.isSensorBlockOccupied(BLOCKNO); 
+* will return the if block is occupoied other wise false in all other cases 
 ```
 void loop() {
   
   .......
-  //bool isBlockOccuipied = blockSensors.isSensorBlockOccupied(BLOCKNO); // this will return true / false based on occupancy of block 
+  
    bool isBlockOccuipied = blockSensors.isSensorBlockOccupied(blockNumber);
   ..........
 }

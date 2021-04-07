@@ -19,7 +19,7 @@ NOTE: block number will start from 1 to the nax number configured
 
 ## Connections
 
-![img](/image/connection.JPG)
+![img](/image/connections.JPG)
 ```
 +5v and gnd from arduino to the breadboard +ve and -ve common lines 
 then supply the smae from breadboard of block 2 and block 3 till block N breadboard common +ve and -ve lines 

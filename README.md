@@ -17,6 +17,11 @@ NOTE: block number will start from 1 to the nax number configured
 ```
 
 
+
+
+### YOUTUBE LINK  FOR LIBRARY DETAILS AND DEMO EXAMPLES
+[![IR SENSOR FOR BLOCK DETECTION](http://img.youtube.com/vi/0u4pMxkpFJA/0.jpg)](https://www.youtube.com/watch?v=0u4pMxkpFJA "IR SENSOR FOR BLOCK DETECTION")
+
 ## Connections
 
 ![img](/image/connections.JPG)

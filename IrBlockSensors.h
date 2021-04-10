@@ -3,26 +3,26 @@
    Developed by Adarsh kumar
    Support adarshkumarsingh83@gmail.com
 */
-#ifndef BlockSensors_h
-#define BlockSensors_h
+#ifndef IrBlockSensors_h
+#define IrBlockSensors_h
 
 #include "IrSensor.h"
 
-class BlockSensors {
+class IrBlockSensors {
 
   private:
     int _totalSensor;
     IrSensor * _irSensorBlocks;
 
   public:
-    BlockSensors() {
+    IrBlockSensors() {
     }
 
     void initBlockSensors(int totalSensor);
     void setBlockSensorPins(int blockNo, int startBlockSensorPin, int endBlockSensorPin);
     bool isSensorBlockOccupied(int blockNo);
 
-    ~BlockSensors() {
+    ~IrBlockSensors() {
       for (int i = 0; i < _totalSensor; i++) {
         delete &_irSensorBlocks[i];
       }

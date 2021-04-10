@@ -1,10 +1,10 @@
 
-#include "BlockSensors.h"
+#include "IrBlockSensors.h"
 #define NO_OF_BLOCKS 3
 
 int BLOCK_LED[] = {7, 6, 5};
 
-BlockSensors blockSensors;
+IrBlockSensors blockSensors;
 
 void setup() {
   Serial.begin(9600);

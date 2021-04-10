@@ -6,7 +6,7 @@
 #ifndef IrSensor_h
 #define IrSensor_h
 
-enum SIGNAL_STATES {
+enum BLOCK_STATES {
   UNOCCUPIED,
   OCCUPYING_FROM_START_OF_BLOCK,
   OCCUPYING_FROM_END_OF_BLOCK,
@@ -22,16 +22,16 @@ class IrSensor {
     int _startBlockSensorVal;
     int _endBlockSensorVal;
 
-    SIGNAL_STATES _stateCurrent = UNOCCUPIED;
-    SIGNAL_STATES _statePrevious = UNOCCUPIED;
+    BLOCK_STATES _stateCurrent = UNOCCUPIED;
+    BLOCK_STATES _statePrevious = UNOCCUPIED;
 
     void init();
     void calculateBlockOccupancy();
 
-    SIGNAL_STATES unOccupiedBlock(SIGNAL_STATES signalState, int startSensor, int endSensor);
-    SIGNAL_STATES occupiedFromEndOfBlock(SIGNAL_STATES signalState, int startSensor, int endSensor);
-    SIGNAL_STATES occupiedFromStartOfBlock(SIGNAL_STATES signalState, int startSensor, int endSensor);
-    SIGNAL_STATES occupiedBlock(SIGNAL_STATES signalState, int startSensor, int endSensor) ;
+    BLOCK_STATES unOccupiedBlock(BLOCK_STATES signalState, int startSensor, int endSensor);
+    BLOCK_STATES occupiedFromEndOfBlock(BLOCK_STATES signalState, int startSensor, int endSensor);
+    BLOCK_STATES occupiedFromStartOfBlock(BLOCK_STATES signalState, int startSensor, int endSensor);
+    BLOCK_STATES occupiedBlock(BLOCK_STATES signalState, int startSensor, int endSensor) ;
 
   public:
 

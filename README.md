@@ -51,13 +51,13 @@ connect the jumper from gnd to the gnd of the all the IR sensors of block 1 bloc
 ## include the header file
 ```
 
-#include "BlockSensors.h"
+#include "IrBlockSensors.h"
 ```
 
-## define the object for the BlockSensors
+## define the object for the IrBlockSensors
 ```
 
-BlockSensors blockSensors;
+IrBlockSensors irBlockSensors;
 
 ```
 
@@ -68,7 +68,7 @@ BlockSensors blockSensors;
 
 
 ## initialize the object with in setup method
-*   blockSensors.initBlockSensors(NO_OF_BLOCKS);
+*   irBlockSensors.initBlockSensors(NO_OF_BLOCKS);
 * this will set the number os ir sensor blcok we cant to configure 
 ```
 initBlockSensors() will take total nuber of block we want to configure 
@@ -77,7 +77,7 @@ void setup() {
   
    .....
 
-  blockSensors.initBlockSensors(NO_OF_BLOCKS);
+  irBlockSensors.initBlockSensors(NO_OF_BLOCKS);
 
   .......
 
@@ -85,7 +85,7 @@ void setup() {
 ```
 
 ## set the block starting ir sensor pin and end pins 
-*    blockSensors.setBlockSensorPins(BLOCKNO, BLOCK_START_IR_SENSOR_PIN, BLOCK_END_IR_SENSOR);
+*    irBlockSensors.setBlockSensorPins(BLOCKNO, BLOCK_START_IR_SENSOR_PIN, BLOCK_END_IR_SENSOR);
 *  it will set the block starting ir sensor  pin and block ending ir sensor  pin for particular block number 
 ```
 setBlockSensorPins() will take block number followed by ir sensor pin which is at start of block and ir sensor pin which is at end of block 
@@ -93,9 +93,9 @@ void setup() {
   
    .....
 
-  blockSensors.setBlockSensorPins(1, 13, 12); //block 1
-  blockSensors.setBlockSensorPins(2, 11, 10); //block 2
-  blockSensors.setBlockSensorPins(3, 9, 8);   //block 3
+  irBlockSensors.setBlockSensorPins(1, 13, 12); //block 1
+  irBlockSensors.setBlockSensorPins(2, 11, 10); //block 2
+  irBlockSensors.setBlockSensorPins(3, 9, 8);   //block 3
 
   .......
 
@@ -114,14 +114,14 @@ void setup() {
 ```
 
 ## use lib method for know the block state
-* bool isBlockOccuipied = blockSensors.isSensorBlockOccupied(BLOCKNO); 
+* bool isBlockOccuipied = irBlockSensors.isSensorBlockOccupied(BLOCKNO); 
 * will return the if block is occupoied other wise false in all other cases 
 ```
 void loop() {
   
   .......
   
-   bool isBlockOccuipied = blockSensors.isSensorBlockOccupied(blockNumber);
+   bool isBlockOccuipied = irBlockSensors.isSensorBlockOccupied(blockNumber);
   ..........
 }
 ```
@@ -130,19 +130,19 @@ void loop() {
 ```
 
 
-#include "BlockSensors.h"
+#include "IrBlockSensors.h"
 #define NO_OF_BLOCKS 3
 
 int block_led[] = {7, 6, 5};
 
-BlockSensors blockSensors;
+IrBlockSensors irBlockSensors;
 
 void setup() {
   Serial.begin(9600);
-  blockSensors.initBlockSensors(NO_OF_BLOCKS);
-  blockSensors.setBlockSensorPins(1, 13, 12);
-  blockSensors.setBlockSensorPins(2, 11, 10);
-  blockSensors.setBlockSensorPins(3, 9, 8);
+  irBlockSensors.initBlockSensors(NO_OF_BLOCKS);
+  irBlockSensors.setBlockSensorPins(1, 13, 12);
+  irBlockSensors.setBlockSensorPins(2, 11, 10);
+  irBlockSensors.setBlockSensorPins(3, 9, 8);
   for (int i = 0; i < NO_OF_BLOCKS; i++) {
     pinMode(block_led[i], OUTPUT);
   }
@@ -155,7 +155,7 @@ void loop() {
 }
 
 void checkBlockStatus(int blockNo) {
-  bool isBlockOccuipied = blockSensors.isSensorBlockOccupied(blockNo);
+  bool isBlockOccuipied = irBlockSensors.isSensorBlockOccupied(blockNo);
   Serial.print("Block no  ");
   Serial.print(blockNo);
   Serial.print("  isBlockOccuipied  ");

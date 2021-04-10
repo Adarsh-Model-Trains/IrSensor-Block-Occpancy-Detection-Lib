@@ -6,9 +6,9 @@
 */
 
 #include <Arduino.h>
-#include "BlockSensors.h"
+#include "IrBlockSensors.h"
 
-void BlockSensors::initBlockSensors(int totalSensor) {
+void IrBlockSensors::initBlockSensors(int totalSensor) {
   if (totalSensor > 0) {
     if (totalSensor > 0)
       _totalSensor = totalSensor;
@@ -21,7 +21,7 @@ void BlockSensors::initBlockSensors(int totalSensor) {
   }
 }
 
-void BlockSensors::setBlockSensorPins(int blockNo, int startBlockSensorPin, int endBlockSensorPin) {
+void IrBlockSensors::setBlockSensorPins(int blockNo, int startBlockSensorPin, int endBlockSensorPin) {
   if (blockNo > -1 && blockNo <= _totalSensor ) {
     if (startBlockSensorPin > -1 && endBlockSensorPin > -1) {
       pinMode(startBlockSensorPin, INPUT);
@@ -35,7 +35,7 @@ void BlockSensors::setBlockSensorPins(int blockNo, int startBlockSensorPin, int 
   }
 }
 
-bool BlockSensors::isSensorBlockOccupied(int blockNo) {
+bool IrBlockSensors::isSensorBlockOccupied(int blockNo) {
   if (blockNo > -1 && blockNo <= _totalSensor) {
     return _irSensorBlocks[blockNo - 1].isBlockOccupied();
   } else {

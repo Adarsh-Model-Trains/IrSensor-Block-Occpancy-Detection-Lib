@@ -67,7 +67,7 @@ bool IrSensor::isBlockOccupied() {
 }
 
 
-SIGNAL_STATES IrSensor::unOccupiedBlock(SIGNAL_STATES signalState, int startSensor, int endSensor) {
+BLOCK_STATES IrSensor::unOccupiedBlock(BLOCK_STATES signalState, int startSensor, int endSensor) {
 
   if (startSensor == ON  && endSensor == OFF) {
     signalState = OCCUPYING_FROM_START_OF_BLOCK;// block is occupied entered from sens1
@@ -78,7 +78,7 @@ SIGNAL_STATES IrSensor::unOccupiedBlock(SIGNAL_STATES signalState, int startSens
 }
 
 
-SIGNAL_STATES IrSensor::occupiedFromEndOfBlock(SIGNAL_STATES signalState, int startSensor, int endSensor) {
+BLOCK_STATES IrSensor::occupiedFromEndOfBlock(BLOCK_STATES signalState, int startSensor, int endSensor) {
 
   if (startSensor == OFF && endSensor == ON) {
     signalState = OCCUPIED;
@@ -87,7 +87,7 @@ SIGNAL_STATES IrSensor::occupiedFromEndOfBlock(SIGNAL_STATES signalState, int st
 }
 
 
-SIGNAL_STATES IrSensor::occupiedFromStartOfBlock(SIGNAL_STATES signalState, int startSensor, int endSensor) {
+BLOCK_STATES IrSensor::occupiedFromStartOfBlock(BLOCK_STATES signalState, int startSensor, int endSensor) {
 
   if (startSensor == ON  && endSensor == OFF) {
     signalState = OCCUPIED;
@@ -96,7 +96,7 @@ SIGNAL_STATES IrSensor::occupiedFromStartOfBlock(SIGNAL_STATES signalState, int 
 }
 
 
-SIGNAL_STATES IrSensor::occupiedBlock(SIGNAL_STATES signalState, int startSensor, int endSensor) {
+BLOCK_STATES IrSensor::occupiedBlock(BLOCK_STATES signalState, int startSensor, int endSensor) {
 
   if ((startSensor == OFF) && (endSensor == OFF)) {
     signalState = UNOCCUPIED;

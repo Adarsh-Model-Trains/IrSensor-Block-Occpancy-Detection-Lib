@@ -1,10 +1,17 @@
 
+<<<<<<< HEAD
 #include "BlockSensors.h"
 #define NO_OF_BLOCKS 3
 
 int block_led[] = {7, 6, 5};
+=======
+#include "IrBlockSensors.h"
+#define NO_OF_BLOCKS 3
+>>>>>>> 07a3afdbbf3ca7a0df6fd2bc98ea0840a4dde5a8
 
-BlockSensors blockSensors;
+int BLOCK_LED[] = {7, 6, 5};
+
+IrBlockSensors blockSensors;
 
 void setup() {
   Serial.begin(9600);
@@ -13,7 +20,11 @@ void setup() {
   blockSensors.setBlockSensorPins(2, 11, 10);
   blockSensors.setBlockSensorPins(3, 9, 8);
   for (int i = 0; i < NO_OF_BLOCKS; i++) {
+<<<<<<< HEAD
     pinMode(block_led[i], OUTPUT);
+=======
+    pinMode(BLOCK_LED[i], OUTPUT);
+>>>>>>> 07a3afdbbf3ca7a0df6fd2bc98ea0840a4dde5a8
   }
 }
 
@@ -30,8 +41,14 @@ void checkBlockStatus(int blockNo) {
   Serial.print("  isBlockOccuipied  ");
   Serial.println(isBlockOccuipied);
   if (isBlockOccuipied) {
+<<<<<<< HEAD
     digitalWrite(block_led[blockNo - 1], HIGH);
   } else {
     digitalWrite(block_led[blockNo - 1], LOW);
+=======
+    digitalWrite(BLOCK_LED[blockNo - 1], HIGH);
+  } else {
+    digitalWrite(BLOCK_LED[blockNo - 1], LOW);
+>>>>>>> 07a3afdbbf3ca7a0df6fd2bc98ea0840a4dde5a8
   }
 }

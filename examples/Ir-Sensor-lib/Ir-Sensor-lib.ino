@@ -1,8 +1,8 @@
 
-#include "BlockSensors.h"
+#include "IrBlockSensors.h"
 #define NO_OF_BLOCKS 3
 
-BlockSensors blockSensors;
+IrBlockSensors blockSensors;
 
 void setup() {
   Serial.begin(9600);
